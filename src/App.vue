@@ -12,7 +12,7 @@
 import axios from 'axios'
 
 import MyHeader from './spa/header/MyHeader.vue'
-import Sidebar from './spa/common/sidebars/sidebar.vue'
+import Sidebar from './spa/common/sidebars/Sidebar.vue'
 
 export default {
   components: { MyHeader, Sidebar },

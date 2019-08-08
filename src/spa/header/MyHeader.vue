@@ -1,23 +1,19 @@
 <template>
     <v-app-bar color="primary" fixed clipped-left app>
-        <v-container>
-            <v-layout>
-                <v-toolbar-items>
-                    <v-btn to="/" class="home-btn" color="accent" text>Home</v-btn>
-                    <v-btn color="accent" @click="showSidebar" text>Genre</v-btn>
-                </v-toolbar-items>
-                <v-spacer></v-spacer>
-                <v-flex class="find_movie" xs3>
-                    <autocomplete-search></autocomplete-search>
-                </v-flex>
-            </v-layout>
-        </v-container>
+        <v-app-bar-nav-icon color="white" @click="showSidebar"></v-app-bar-nav-icon>
+        <router-link class="logoTip" to="/">
+            <img src="../../assets/img/logo.svg" alt=""/>
+        </router-link>
+        <v-spacer></v-spacer>
+        <v-flex class="find_movie" xs3>
+            <autocomplete-search></autocomplete-search>
+        </v-flex>
     </v-app-bar>
 </template>
 
 <script>
 import EventBus from './../../event-bus.js'
-import AutocompleteSearch from './../common/autocomleteSearch/searchAutocomplete.vue'
+import AutocompleteSearch from '../common/autocomleteSearch/SearchAutocomplete.vue'
 
 export default {
     name: "MyHeader",

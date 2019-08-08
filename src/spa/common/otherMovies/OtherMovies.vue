@@ -13,7 +13,7 @@
                 <movie-item v-for="movie in movies" :key="movie.id" :movie="movie"></movie-item>
             </slick>
         </template>
-        <v-layout v-else key="loading" class="fill-height align-center justify-center pa-4">
+        <v-layout v-else class="fill-height align-center justify-center pa-4">
             <v-progress-circular
                     indeterminate
                     :size="70"
@@ -57,7 +57,6 @@ export default {
         },
         nextSlide() {
             this.$refs.slick.next();
-            // this.$refs.owlCarousel.trigger('next.owl.carousel')
         }
     },
 }

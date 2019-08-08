@@ -1,4 +1,13 @@
 .v-toolbar{
+  .logoTip{
+    margin-left: 15px;
+    width: 50px;
+    height: 43px;
+    .v-image{
+      height: 100%;
+    }
+  }
+
   .find_movie{
     .v-input{
       .v-label{

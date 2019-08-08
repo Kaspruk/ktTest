@@ -11,10 +11,10 @@
             item-value="id"
             flat
             solo-inverted
-            hide-no-data
+            no-data-text="Nothing found"
             hide-details>
         <template v-slot:item="{ item }">
-            <template @click="search = null; focus = false">
+            <template @click="search = null">
                 <v-list-item-avatar
                         color="accent"
                         class="headline font-weight-light white--text">
@@ -41,7 +41,6 @@ export default {
             movies: [],
             selectMovie: '',
             loading: false,
-            focus: false,
         }
     },
     methods: {
@@ -62,7 +61,7 @@ export default {
     },
     watch: {
         search: _.debounce(function (newVal) {
-                if (newVal !== '' && newVal !== null) this.getSearchMovie();
+                if (newVal) this.getSearchMovie();
             }, 1000),
     },
 }

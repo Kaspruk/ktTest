@@ -26,11 +26,11 @@
                     </v-btn-toggle>
                 </template>
             </v-layout>
-            <v-layout key="movieList" wrap>
+            <v-layout wrap>
                 <v-flex v-for="movie in movies" :key="movie.id" xs3>
                     <movie-item :movie="movie"></movie-item>
                 </v-flex>
-                <v-layout v-if="loadMore" key="loading" class="fill-height align-center justify-center pa-4">
+                <v-layout v-if="loadMoreLoading" class="fill-height align-center justify-center pa-4">
                     <v-progress-circular
                             indeterminate
                             :size="70"
@@ -40,7 +40,7 @@
                 </v-layout>
             </v-layout>
         </template>
-        <v-layout v-else key="loading" class="fill-height align-center justify-center pa-4">
+        <v-layout v-else class="fill-height align-center justify-center pa-4">
             <v-progress-circular
                     indeterminate
                     :size="70"
@@ -109,7 +109,7 @@ export default {
             ],
             currentSortingItem: [],
             currentSorting: 'popularity.desc',
-            loadMore: false,
+            loadMoreLoading: false,
         }
     },
     methods: {
@@ -118,7 +118,7 @@ export default {
                 let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
                 if (bottomOfWindow && this.movies.length) {
-                    this.loadMore = true;
+                    this.loadMoreLoading = true;
                     this.$emit('loadMore')
                 }
             };
@@ -138,7 +138,7 @@ export default {
             this.$emit('sortingBy', val)
         },
         movies(){
-            if(this.movies.length > 20)this.loadMore = false;
+            if(this.movies.length > 20) this.loadMoreLoading = false;
         }
     }
 }
