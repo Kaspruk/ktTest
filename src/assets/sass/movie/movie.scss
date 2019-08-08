@@ -1,0 +1,67 @@
+.movie{
+  position: relative;
+  &_background-poster {
+    left: 0;
+    height: calc(100vh - 64px);
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    background-image: linear-gradient(to bottom, rgba(8,28,36,.85), rgba(8,28,36,.85));
+    .v-image{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &_content{
+    height: calc(100vh - 64px);
+    z-index: 1;
+    .layout{
+      height: 100%;
+      .flex{
+        height: 100%;
+        &:first-child{
+          display: flex;
+          justify-content: center;
+          padding: 15px;
+          img{
+            height: 100%;
+          }
+        }
+        &:last-child{
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+          padding: 15px 15px 15px 0;
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+    &-item{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 10px;
+      span{
+        display: block;
+        margin-right: 5px;
+      }
+      p{
+        margin-right: 10px;
+      }
+      .v-rating{
+        margin-top: -3px;
+        margin-right: 2px;
+      }
+    }
+  }
+  &_description{
+    background-color: white;
+    padding: 15px 30px 30px;
+    p{
+      margin-bottom: 10px;
+    }
+  }
+}

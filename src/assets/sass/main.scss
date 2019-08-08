@@ -1,0 +1,42 @@
+.theme--light.v-application {
+  background: #F5F5F5;
+}
+
+.text-decoration-none{
+  text-decoration: none;
+  overflow: hidden;
+  .v-image{
+    &__image{
+      transition: transform .3s ease-in;
+    }
+  }
+  &:hover{
+    .v-image{
+      &__image{
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.divider{
+  flex: 1;
+  width: 100%;
+  margin: 30px 0;
+  height: 2px;
+  background-color: #01d277;
+  border-radius: 4px;
+}
+
+.v-image__image--preload {
+  filter: blur(0) !important;
+}
+
+.without-image{
+  background-color: #081c24;
+}
+
+@import 'header/header.scss';
+@import 'sidebar/sidebar.scss';
+@import 'movie/movie';
+@import 'slick/slick';

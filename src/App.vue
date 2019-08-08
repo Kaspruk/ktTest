@@ -1,28 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app color="">
+    <my-header></my-header>
+    <v-content>
+      <router-view/>
+    </v-content>
+    <sidebar></sidebar>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
+
+import MyHeader from './spa/header/MyHeader.vue'
+import Sidebar from './spa/common/sidebars/sidebar.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  components: { MyHeader, Sidebar },
+  methods: {
+    getGenres() {
+        axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=0485215329c893f49b488f10ea7cfb84')
+          .then(res => this.$store.commit('setGenres', res.data.genres))
+    },
+  },
+  created(){
+    this.getGenres();
   }
 }
-</script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+</script>
