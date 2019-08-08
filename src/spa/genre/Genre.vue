@@ -39,7 +39,7 @@ export default {
         },
     },
     created(){
-        if(this.$route.params.id) this.getMovies();
+        this.getMovies();
     },
 }
 </script>
